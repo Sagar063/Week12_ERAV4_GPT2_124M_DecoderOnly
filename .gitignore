@@ -5,8 +5,8 @@ __pycache__/
 venv/
 
 # Training outputs (your train.py writes here)
-out/
-runs/
+# out/
+# runs/
 **/checkpoints/
 
 # OS/editor

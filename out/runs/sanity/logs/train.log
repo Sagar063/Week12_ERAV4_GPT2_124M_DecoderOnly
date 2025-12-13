@@ -1,0 +1,32 @@
+2025-12-14 02:29:38,988 | INFO | Device used in training: cuda
+2025-12-14 02:29:38,988 | INFO | Args: {'input_file': 'data/input.txt', 'out_dir': 'out\\runs\\sanity', 'seed': 1337, 'block_size': 1024, 'n_layer': 12, 'n_head': 12, 'n_embd': 768, 'batch_size': 4, 'seq_len': 128, 'grad_accum': 1, 'steps': 30, 'lr': 0.0003, 'weight_decay': 0.1, 'beta1': 0.9, 'beta2': 0.95, 'clip_grad': 1.0, 'randomize_batches': False, 'target_loss': 0.1, 'log_every': 10, 'save_every': 10, 'sample_every': 10, 'resume': '', 'prompt': 'BIANCA:\n', 'num_prompts': 2, 'max_new_tokens': 200, 'top_k': 50, 'temperature': 0.9, 'compile': False, 'amp': 'fp16'}
+2025-12-14 02:29:38,988 | INFO | Log file: out\runs\sanity\logs\train.log
+2025-12-14 02:29:38,988 | INFO | CSV file: out\runs\sanity\logs\train_metrics.csv
+2025-12-14 02:29:39,213 | INFO | Loaded 338025 tokens from data/input.txt
+2025-12-14 02:29:39,214 | INFO | Batch tokens per step (before grad_accum): 512
+2025-12-14 02:29:39,214 | INFO | Effective tokens per optimizer step: 512
+2025-12-14 02:29:41,162 | INFO | step 1/30 | loss 10.931427 | lr 3.00e-04 | tok/s 1647.7
+2025-12-14 02:30:01,857 | INFO | New best loss 10.931427 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:30:49,714 | INFO | New best loss 9.565536 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:31:40,018 | INFO | New best loss 9.007504 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:31:56,674 | INFO | New best loss 8.972071 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:32:42,108 | INFO | New best loss 8.902363 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:33:03,632 | INFO | New best loss 8.526791 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:33:51,282 | INFO | New best loss 8.219444 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:33:51,825 | INFO | step 10/30 | loss 8.256924 | lr 3.00e-04 | tok/s 20.4
+2025-12-14 02:34:32,088 | INFO | Saved checkpoint: out\runs\sanity\checkpoints\last.pt
+2025-12-14 02:34:57,790 | INFO | Appended samples to: out\runs\sanity\samples\samples.txt
+2025-12-14 02:35:22,682 | INFO | New best loss 7.846100 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:35:26,422 | INFO | New best loss 7.344147 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:35:55,621 | INFO | New best loss 7.100513 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:36:17,353 | INFO | New best loss 6.811369 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:36:17,930 | INFO | step 20/30 | loss 6.500828 | lr 3.00e-04 | tok/s 25.8
+2025-12-14 02:37:08,519 | INFO | Saved checkpoint: out\runs\sanity\checkpoints\last.pt
+2025-12-14 02:37:13,318 | INFO | Appended samples to: out\runs\sanity\samples\samples.txt
+2025-12-14 02:38:19,220 | INFO | New best loss 6.500828 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:39:07,838 | INFO | New best loss 6.470907 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:39:11,510 | INFO | New best loss 6.237009 -> saved: out\runs\sanity\checkpoints\best.pt
+2025-12-14 02:39:12,238 | INFO | step 30/30 | loss 6.380531 | lr 3.00e-04 | tok/s 26.9
+2025-12-14 02:39:57,719 | INFO | Saved checkpoint: out\runs\sanity\checkpoints\last.pt
+2025-12-14 02:40:01,234 | INFO | Appended samples to: out\runs\sanity\samples\samples.txt
+2025-12-14 02:40:01,235 | INFO | Training complete.
