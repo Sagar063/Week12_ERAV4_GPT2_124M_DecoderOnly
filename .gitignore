@@ -8,9 +8,10 @@ venv/
 out/
 runs/
 **/checkpoints/
-**/logs/*.log
 
 # OS/editor
 .DS_Store
 .vscode/
 .idea/
+
+train_get2-8-init.py
