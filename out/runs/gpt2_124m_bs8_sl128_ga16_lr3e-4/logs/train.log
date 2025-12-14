@@ -1,0 +1,212 @@
+2025-12-14 03:13:03,329 | INFO | Device used in training: cuda
+2025-12-14 03:13:03,329 | INFO | Args: {'input_file': 'data/input.txt', 'out_dir': 'out\\runs\\gpt2_124m_bs8_sl128_ga16_lr3e-4', 'seed': 1337, 'block_size': 1024, 'n_layer': 12, 'n_head': 12, 'n_embd': 768, 'batch_size': 48, 'seq_len': 128, 'grad_accum': 3, 'steps': 400000, 'lr': 0.0003, 'weight_decay': 0.1, 'beta1': 0.9, 'beta2': 0.95, 'clip_grad': 1.0, 'randomize_batches': False, 'target_loss': 0.099999, 'log_every': 50, 'save_every': 1000, 'sample_every': 1000, 'resume': '', 'prompt': 'BIANCA:\n', 'num_prompts': 2, 'max_new_tokens': 200, 'top_k': 50, 'temperature': 0.9, 'compile': False, 'amp': 'fp16'}
+2025-12-14 03:13:03,329 | INFO | Log file: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\logs\train.log
+2025-12-14 03:13:03,330 | INFO | CSV file: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\logs\train_metrics.csv
+2025-12-14 03:13:03,532 | INFO | Loaded 338025 tokens from data/input.txt
+2025-12-14 03:13:03,532 | INFO | Batch tokens per step (before grad_accum): 6144
+2025-12-14 03:13:03,532 | INFO | Effective tokens per optimizer step: 18432
+2025-12-14 03:13:06,218 | INFO | step 1/400000 | loss 10.940292 | lr 3.00e-04 | tok/s 17964.4
+2025-12-14 03:13:33,154 | INFO | New best loss 10.940292 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:13:37,672 | INFO | New best loss 9.398620 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:13:41,258 | INFO | New best loss 9.144612 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:13:51,087 | INFO | New best loss 8.852030 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:14:17,905 | INFO | New best loss 8.613264 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:14:39,949 | INFO | New best loss 8.500515 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:14:55,573 | INFO | New best loss 8.308876 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:14:58,631 | INFO | New best loss 7.994796 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:02,254 | INFO | New best loss 7.744065 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:05,814 | INFO | New best loss 7.585588 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:10,868 | INFO | New best loss 7.358943 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:16,259 | INFO | New best loss 7.227629 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:39,413 | INFO | New best loss 7.085805 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:53,009 | INFO | New best loss 6.924455 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:15:56,711 | INFO | New best loss 6.792752 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:02,044 | INFO | New best loss 6.745161 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:05,933 | INFO | New best loss 6.674641 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:11,119 | INFO | New best loss 6.521885 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:26,018 | INFO | New best loss 6.510743 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:42,026 | INFO | New best loss 6.264262 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:45,535 | INFO | New best loss 6.229347 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:53,065 | INFO | New best loss 6.228732 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:16:56,092 | INFO | New best loss 6.143584 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:01,891 | INFO | New best loss 6.097653 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:07,620 | INFO | New best loss 5.996023 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:24,264 | INFO | New best loss 5.884809 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:31,155 | INFO | step 50/400000 | loss 6.146201 | lr 3.00e-04 | tok/s 3465.2
+2025-12-14 03:17:37,307 | INFO | New best loss 5.878451 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:42,550 | INFO | New best loss 5.745362 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:17:46,761 | INFO | New best loss 5.732601 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:00,589 | INFO | New best loss 5.685432 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:05,276 | INFO | New best loss 5.638697 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:10,295 | INFO | New best loss 5.637980 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:28,483 | INFO | New best loss 5.609314 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:34,511 | INFO | New best loss 5.532284 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:39,150 | INFO | New best loss 5.447047 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:44,182 | INFO | New best loss 5.426125 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:48,988 | INFO | New best loss 5.388416 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:18:52,231 | INFO | step 100/400000 | loss 5.472377 | lr 3.00e-04 | tok/s 5311.2
+2025-12-14 03:18:57,344 | INFO | New best loss 5.348887 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:18,978 | INFO | New best loss 5.261155 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:24,105 | INFO | New best loss 5.196564 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:28,857 | INFO | New best loss 5.150852 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:43,827 | INFO | New best loss 5.104526 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:48,250 | INFO | New best loss 5.099593 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:19:52,774 | INFO | New best loss 5.087492 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:03,191 | INFO | New best loss 5.064586 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:10,121 | INFO | New best loss 4.935708 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:13,049 | INFO | step 150/400000 | loss 5.023100 | lr 3.00e-04 | tok/s 6462.0
+2025-12-14 03:20:30,618 | INFO | New best loss 4.928738 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:35,980 | INFO | New best loss 4.917199 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:41,130 | INFO | New best loss 4.818370 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:20:54,492 | INFO | New best loss 4.811548 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:21:08,632 | INFO | New best loss 4.784178 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:21:10,280 | INFO | step 200/400000 | loss 4.848191 | lr 3.00e-04 | tok/s 7599.5
+2025-12-14 03:21:15,712 | INFO | New best loss 4.633400 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:21:31,945 | INFO | New best loss 4.624321 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:21:39,753 | INFO | New best loss 4.598291 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:22:00,962 | INFO | New best loss 4.548270 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:22:10,022 | INFO | step 250/400000 | loss 4.626685 | lr 3.00e-04 | tok/s 8457.7
+2025-12-14 03:22:17,248 | INFO | New best loss 4.420288 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:22:49,962 | INFO | step 300/400000 | loss 4.742638 | lr 3.00e-04 | tok/s 9456.0
+2025-12-14 03:23:02,293 | INFO | New best loss 4.301549 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:23:32,717 | INFO | New best loss 4.249220 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:23:34,344 | INFO | step 350/400000 | loss 4.354984 | lr 3.00e-04 | tok/s 10253.8
+2025-12-14 03:23:48,750 | INFO | New best loss 4.156591 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:24:05,713 | INFO | New best loss 4.131239 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:24:17,683 | INFO | step 400/400000 | loss 4.210557 | lr 3.00e-04 | tok/s 10963.4
+2025-12-14 03:24:27,058 | INFO | New best loss 4.128791 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:24:33,310 | INFO | New best loss 4.060823 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:24:49,476 | INFO | New best loss 3.919265 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:25:10,976 | INFO | step 450/400000 | loss 4.240286 | lr 3.00e-04 | tok/s 11428.2
+2025-12-14 03:25:47,786 | INFO | step 500/400000 | loss 4.040066 | lr 3.00e-04 | tok/s 12085.1
+2025-12-14 03:26:00,989 | INFO | New best loss 3.844612 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:26:17,901 | INFO | New best loss 3.732506 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:26:32,053 | INFO | step 550/400000 | loss 3.853873 | lr 3.00e-04 | tok/s 12564.3
+2025-12-14 03:27:00,577 | INFO | New best loss 3.650483 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:27:16,998 | INFO | New best loss 3.632178 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:27:27,477 | INFO | step 600/400000 | loss 4.067912 | lr 3.00e-04 | tok/s 12825.5
+2025-12-14 03:27:35,042 | INFO | New best loss 3.612369 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:28:05,631 | INFO | New best loss 3.489038 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:28:12,495 | INFO | step 650/400000 | loss 3.801689 | lr 3.00e-04 | tok/s 13204.9
+2025-12-14 03:28:21,738 | INFO | New best loss 3.481967 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:28:40,025 | INFO | New best loss 3.442730 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:29:03,584 | INFO | New best loss 3.325518 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:29:06,826 | INFO | step 700/400000 | loss 3.582445 | lr 3.00e-04 | tok/s 13417.2
+2025-12-14 03:29:20,410 | INFO | New best loss 3.323296 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:29:37,164 | INFO | New best loss 3.302457 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:29:49,861 | INFO | step 750/400000 | loss 3.459952 | lr 3.00e-04 | tok/s 13759.8
+2025-12-14 03:29:53,598 | INFO | New best loss 3.192685 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:30:23,869 | INFO | New best loss 3.177687 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:30:32,812 | INFO | step 800/400000 | loss 3.349268 | lr 3.00e-04 | tok/s 14075.3
+2025-12-14 03:30:48,218 | INFO | New best loss 3.045352 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:31:05,806 | INFO | New best loss 3.042344 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:31:24,804 | INFO | New best loss 2.976233 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:31:30,159 | INFO | step 850/400000 | loss 3.435676 | lr 3.00e-04 | tok/s 14178.9
+2025-12-14 03:31:42,213 | INFO | New best loss 2.886062 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:31:59,007 | INFO | New best loss 2.871329 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:32:23,551 | INFO | New best loss 2.845344 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:32:25,276 | INFO | step 900/400000 | loss 3.106040 | lr 3.00e-04 | tok/s 14299.7
+2025-12-14 03:32:43,309 | INFO | New best loss 2.745459 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:33:08,680 | INFO | step 950/400000 | loss 2.809545 | lr 3.00e-04 | tok/s 14549.7
+2025-12-14 03:33:14,244 | INFO | New best loss 2.664105 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:33:30,677 | INFO | New best loss 2.614232 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:33:52,296 | INFO | step 1000/400000 | loss 2.964148 | lr 3.00e-04 | tok/s 14779.8
+2025-12-14 03:33:55,285 | INFO | Saved checkpoint: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\last.pt
+2025-12-14 03:33:59,293 | INFO | Appended samples to: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\samples\samples.txt
+2025-12-14 03:34:27,286 | INFO | New best loss 2.570910 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:34:43,640 | INFO | New best loss 2.429983 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:35:01,466 | INFO | step 1050/400000 | loss 2.722588 | lr 3.00e-04 | tok/s 14703.3
+2025-12-14 03:35:13,685 | INFO | New best loss 2.423810 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:35:28,206 | INFO | New best loss 2.418567 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:35:51,057 | INFO | New best loss 2.268503 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:36:05,300 | INFO | step 1100/400000 | loss 2.353556 | lr 3.00e-04 | tok/s 14691.0
+2025-12-14 03:36:21,468 | INFO | New best loss 2.224204 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:36:45,119 | INFO | New best loss 2.217243 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:36:49,344 | INFO | New best loss 2.135711 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:36:59,729 | INFO | step 1150/400000 | loss 2.445032 | lr 3.00e-04 | tok/s 14776.1
+2025-12-14 03:37:19,341 | INFO | New best loss 2.035256 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:37:35,360 | INFO | New best loss 2.004002 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:37:42,245 | INFO | step 1200/400000 | loss 2.281033 | lr 3.00e-04 | tok/s 14974.7
+2025-12-14 03:37:51,375 | INFO | New best loss 1.971340 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:38:07,401 | INFO | New best loss 1.965436 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:38:17,080 | INFO | New best loss 1.845720 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:38:33,518 | INFO | New best loss 1.784571 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:38:36,559 | INFO | step 1250/400000 | loss 2.144839 | lr 3.00e-04 | tok/s 15045.4
+2025-12-14 03:39:03,503 | INFO | New best loss 1.743012 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:39:16,109 | INFO | step 1300/400000 | loss 1.861244 | lr 3.00e-04 | tok/s 15253.3
+2025-12-14 03:39:19,413 | INFO | New best loss 1.623277 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:39:49,345 | INFO | New best loss 1.569998 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:39:58,336 | INFO | step 1350/400000 | loss 1.793567 | lr 3.00e-04 | tok/s 15425.3
+2025-12-14 03:40:05,250 | INFO | New best loss 1.451146 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:40:35,249 | INFO | New best loss 1.415953 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:40:40,511 | INFO | step 1400/400000 | loss 1.875473 | lr 3.00e-04 | tok/s 15589.0
+2025-12-14 03:40:51,181 | INFO | New best loss 1.400855 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:41:20,044 | INFO | step 1450/400000 | loss 1.635456 | lr 3.00e-04 | tok/s 15769.2
+2025-12-14 03:41:32,806 | INFO | New best loss 1.380961 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:41:37,417 | INFO | New best loss 1.303038 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:41:53,326 | INFO | New best loss 1.274949 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:42:05,357 | INFO | step 1500/400000 | loss 1.298733 | lr 3.00e-04 | tok/s 15888.2
+2025-12-14 03:42:10,793 | INFO | New best loss 1.233707 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:42:32,818 | INFO | New best loss 1.191891 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:42:37,532 | INFO | New best loss 1.113902 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:42:59,094 | INFO | step 1550/400000 | loss 1.314463 | lr 3.00e-04 | tok/s 15926.0
+2025-12-14 03:43:06,901 | INFO | New best loss 1.110066 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:43:10,990 | INFO | New best loss 0.979728 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:43:28,337 | INFO | New best loss 0.938474 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:43:44,586 | INFO | New best loss 0.922951 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:43:49,106 | INFO | step 1600/400000 | loss 1.115450 | lr 3.00e-04 | tok/s 15993.8
+2025-12-14 03:44:14,249 | INFO | New best loss 0.915210 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:44:19,710 | INFO | New best loss 0.797861 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:44:35,892 | INFO | New best loss 0.739213 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:44:50,028 | INFO | step 1650/400000 | loss 0.735999 | lr 3.00e-04 | tok/s 15966.1
+2025-12-14 03:44:52,824 | INFO | New best loss 0.735999 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:45:24,401 | INFO | New best loss 0.731888 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:45:29,589 | INFO | New best loss 0.717602 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:45:34,509 | INFO | New best loss 0.653085 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:45:49,150 | INFO | New best loss 0.641445 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:45:54,359 | INFO | New best loss 0.569461 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:46:04,785 | INFO | step 1700/400000 | loss 0.758648 | lr 3.00e-04 | tok/s 15828.7
+2025-12-14 03:46:24,287 | INFO | New best loss 0.534095 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:46:45,955 | INFO | New best loss 0.496289 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:46:52,733 | INFO | step 1750/400000 | loss 0.618937 | lr 3.00e-04 | tok/s 15908.9
+2025-12-14 03:47:01,948 | INFO | New best loss 0.466642 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:47:05,834 | INFO | New best loss 0.453498 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:47:22,625 | INFO | New best loss 0.389749 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:47:38,589 | INFO | New best loss 0.362131 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:47:41,680 | INFO | step 1800/400000 | loss 0.566370 | lr 3.00e-04 | tok/s 15977.7
+2025-12-14 03:48:08,582 | INFO | New best loss 0.324948 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:48:21,252 | INFO | step 1850/400000 | loss 0.382905 | lr 3.00e-04 | tok/s 16114.5
+2025-12-14 03:48:29,274 | INFO | New best loss 0.298434 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:48:57,165 | INFO | New best loss 0.283849 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:01,032 | INFO | New best loss 0.282175 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:07,839 | INFO | New best loss 0.257717 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:16,889 | INFO | step 1900/400000 | loss 0.283307 | lr 3.00e-04 | tok/s 16126.0
+2025-12-14 03:49:22,537 | INFO | New best loss 0.255437 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:26,557 | INFO | New best loss 0.231858 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:31,245 | INFO | New best loss 0.212172 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:49:58,242 | INFO | New best loss 0.211266 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:03,243 | INFO | New best loss 0.184253 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:07,127 | INFO | New best loss 0.178253 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:12,136 | INFO | New best loss 0.174332 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:17,460 | INFO | step 1950/400000 | loss 0.211753 | lr 3.00e-04 | tok/s 16101.3
+2025-12-14 03:50:28,495 | INFO | New best loss 0.167420 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:40,108 | INFO | New best loss 0.165993 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:50:48,807 | INFO | New best loss 0.155774 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:03,627 | INFO | New best loss 0.153930 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:14,276 | INFO | New best loss 0.153224 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:15,895 | INFO | step 2000/400000 | loss 0.213669 | lr 3.00e-04 | tok/s 16092.9
+2025-12-14 03:51:28,976 | INFO | Saved checkpoint: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\last.pt
+2025-12-14 03:51:33,035 | INFO | Appended samples to: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\samples\samples.txt
+2025-12-14 03:51:43,319 | INFO | New best loss 0.152596 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:48,938 | INFO | New best loss 0.152478 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:53,227 | INFO | New best loss 0.133115 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:51:57,341 | INFO | New best loss 0.124396 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:52:24,572 | INFO | New best loss 0.118997 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:52:38,026 | INFO | step 2050/400000 | loss 0.138859 | lr 3.00e-04 | tok/s 15924.3
+2025-12-14 03:52:43,541 | INFO | New best loss 0.109542 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:53:18,306 | INFO | step 2100/400000 | loss 0.139297 | lr 3.00e-04 | tok/s 16040.4
+2025-12-14 03:53:37,854 | INFO | New best loss 0.106622 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:53:45,302 | INFO | New best loss 0.104635 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:54:02,973 | INFO | New best loss 0.089860 -> saved: out\runs\gpt2_124m_bs8_sl128_ga16_lr3e-4\checkpoints\best.pt
+2025-12-14 03:54:02,973 | INFO | Target reached: loss 0.089860 <= 0.099999. Stopping.
+2025-12-14 03:54:27,419 | INFO | Training complete.
