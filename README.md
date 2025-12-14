@@ -282,7 +282,7 @@ This section is **auto-filled** by `update_readme.py`.
 <!--AUTO:METRICS:START-->
 | Metric | Value |
 |---|---:|
-| Best loss | 0.089860 |
+| Best loss | <mark>0.089860</mark> |
 | Step at best loss | 2130 |
 | Last logged loss | 0.089860 |
 | Total logged rows | 44 |
@@ -387,10 +387,10 @@ The Space loads the **best training checkpoint (`best.pt`)** for inference only 
 Place screenshots under `assets/` and reference them here.
 
 - **Space UI main page**  
-  ![Space UI](assets/space_ui.png)
+  ![Space UI](images/space_ui.png)
 
 - **Example generation output**  
-  ![Generation Output](assets/sample_generation.png)
+  ![Generation Output](images/sample_generation.png)
 
 ### 🎛️ Inference Controls Explained
 
