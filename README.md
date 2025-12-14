@@ -185,7 +185,7 @@ This section is **auto-filled** by `update_readme.py`.
 
 ### Summary
 <!--AUTO:SUMMARY:START-->
-- Updated: **2025-12-14 13:27**
+- Updated: **2025-12-14 13:34**
 - Run directory: `out/runs/gpt2_124m_bs8_sl128_ga16_lr3e-4`
 - Best loss: **0.089860** at step **2130**
 - Last logged loss: **0.089860**
@@ -387,10 +387,10 @@ The Space loads the **best training checkpoint (`best.pt`)** for inference only 
 Place screenshots under `assets/` and reference them here.
 
 - **Space UI main page**  
-  ![Space UI](images/space_ui.png)
+  ![Space UI](assets/space_ui.png)
 
 - **Example generation output**  
-  ![Generation Output](images/sample_generation.png)
+  ![Generation Output](assets/sample_generation.png)
 
 ### 🎛️ Inference Controls Explained
 
@@ -427,43 +427,206 @@ Recommended range: `30–70`
 - **Best loss achieved:** `≈ 0.08986`
 
 ## Understanding the Decoder‑Only Transformer (Sequence‑Based Training)
-This project trains a **decoder‑only Transformer (GPT‑2 style)** for **next‑token prediction** on a single text corpus (`input.txt`). The model is trained **from scratch**, without any pretrained weights.
-### How the data is used
-- The entire `input.txt` file is treated as **one continuous stream of tokens**.
-- At each training step:
-  - `batch_size` independent sequences are sampled.
-  - Each sequence has length `seq_len` tokens.
-- For every sequence:
-  - **Input**: tokens `[t0, t1, ..., t127]`
-  - **Target**: tokens `[t1, t2, ..., t128]`
-- The model learns to predict the **next token at every position**.
-There is **no sentence boundary requirement** — sequences are random slices from the token stream.
-### What the Transformer computes
-For each batch:
-- Input shape: `(batch_size, seq_len)`
-- Output logits shape: `(batch_size, seq_len, vocab_size)`
-Loss is computed using **cross‑entropy**, averaged over:
+
+This project implements and trains a **decoder‑only Transformer (GPT‑2 style)** for **causal language modeling**, i.e. **next‑token prediction**, entirely **from scratch** (no pretrained weights).  
+The same core model is used during **training** and **inference**; only the execution mode changes.
+
+---
+
+### 1. Input data and tokenization
+
+- The dataset is provided as a raw text file: `input.txt`.
+- The file is treated as **one continuous stream of text**, not as individual sentences or documents.
+- Tokenization is performed using **GPT‑2 Byte Pair Encoding (BPE)** via `tiktoken`.
+
+**Why BPE?**
+- Converts raw text into a fixed vocabulary of subword tokens (≈50k tokens).
+- Handles rare words by decomposing them into sub‑tokens.
+- Allows the model to generalize beyond exact word matches.
+
+After tokenization:
+- The entire corpus becomes a long sequence of token IDs:
+  ```
+  [t0, t1, t2, t3, ..., tN]
+  ```
+
+---
+
+### 2. Training batch construction (sequence‑based)
+
+At each training step:
+- `batch_size` independent sequences are sampled.
+- Each sequence has length `seq_len`.
+
+For one sequence:
+- **Input tokens:**  
+  ```
+  x = [t_i, t_{i+1}, ..., t_{i+seq_len-1}]
+  ```
+- **Target tokens:**  
+  ```
+  y = [t_{i+1}, t_{i+2}, ..., t_{i+seq_len}]
+  ```
+
+This creates a **shifted prediction task**:
+> predict the *next token* at every position.
+
+There is:
+- No padding requirement
+- No sentence boundary awareness
+- No explicit start/end tokens
+
+The model simply learns token‑to‑token continuation.
+
+---
+
+### 3. Embeddings: token + position
+
+Each input token ID is mapped to:
+
+1. **Token embedding**
+   - Shape: `(vocab_size, embedding_dim)`
+   - Converts discrete tokens into continuous vectors.
+
+2. **Positional embedding**
+   - Shape: `(block_size, embedding_dim)`
+   - Encodes absolute token position (0 → block_size‑1).
+
+These are **added together**:
+```
+h_0 = token_embedding + position_embedding
+```
+
+This sum becomes the input to the Transformer stack.
+
+---
+
+### 4. Causal self‑attention (the core idea)
+
+Each Transformer block applies **masked self‑attention**.
+
+For every token position *i*:
+- Queries (Q), Keys (K), and Values (V) are computed:
+  ```
+  Q = XW_Q,  K = XW_K,  V = XW_V
+  ```
+
+- Attention scores are computed as:
+  ```
+  softmax(QKᵀ / √d_k)
+  ```
+
+- A **causal (triangular) mask** is applied so that:
+  - Token *i* can attend only to tokens `≤ i`
+  - Future tokens are **invisible** during training
+
+This ensures:
+> The model never “cheats” by seeing future tokens.
+
+---
+
+### 5. Residual connections and LayerNorm
+
+Each Transformer block follows the pattern:
+
+```
+x = x + SelfAttention(LayerNorm(x))
+x = x + MLP(LayerNorm(x))
+```
+
+Benefits:
+- **Residual connections** stabilize deep training
+- **LayerNorm** keeps activations numerically stable
+- Enables training of deep stacks (12 layers here)
+
+---
+
+### 6. Output projection and loss
+
+- Final hidden states are projected back to vocabulary size:
+  ```
+  logits = Linear(hidden_dim → vocab_size)
+  ```
+
+- Shape of logits:
+  ```
+  (batch_size, seq_len, vocab_size)
+  ```
+
+- **Cross‑entropy loss** is computed between:
+  - Predicted logits at position *i*
+  - Target token `y_i`
+
+Loss is averaged over:
 ```
 batch_size × seq_len
 ```
-token predictions.
-### Attention behavior
-- **Self‑attention operates only within each sequence**.
-- Tokens in one batch row never attend to tokens in another row.
-- The batch dimension is used only for computational parallelism.
-### Training is step‑based (not epoch‑based)
-Unlike classical datasets, this training setup **does not use epochs**.
-- One **step** = one optimizer update.
-- Each step processes:
-```
-batch_size × seq_len × grad_accum
-```
-tokens.
-Since token sequences are sampled randomly from a continuous stream:
-- There is no well‑defined “one full pass over the dataset”.
-- Progress is measured in **steps and total tokens processed**, not epochs.
-A rough *pseudo‑epoch* can be estimated as:
+
+This is standard **causal language modeling loss**.
+
+---
+
+### 7. Why training is step‑based (not epoch‑based)
+
+Because:
+- The dataset is a continuous token stream
+- Sequences are randomly sampled each step
+
+There is **no clear notion of an epoch**.
+
+Instead:
+- One **step** = one optimizer update
+- Progress is measured in:
+  - Training steps
+  - Total tokens processed
+
+A rough “pseudo‑epoch” can be estimated as:
 ```
 (total tokens processed) / (total tokens in input.txt)
 ```
-but this is only an approximation.
+but this is only approximate.
+
+---
+
+### 8. Inference: autoregressive generation
+
+During inference (as used in the Hugging Face Space):
+
+1. A prompt (e.g. `BIANCA:
+`) is tokenized.
+2. Tokens are fed into the model.
+3. The model predicts the **next‑token distribution**.
+4. One token is sampled (using temperature / top‑k).
+5. The new token is appended to the input.
+6. Steps 3–5 repeat until `max_new_tokens` is reached.
+
+This is **exactly the same computation as training**, except:
+- No gradients
+- One token generated at a time
+- Sampling replaces argmax
+
+---
+
+### 9. Training vs Inference (summary)
+
+| Aspect | Training | Inference |
+|------|---------|-----------|
+| Mode | `model.train()` | `model.eval()` |
+| Gradients | Yes | No |
+| Input | Fixed‑length sequences | Growing sequence |
+| Masking | Causal mask | Causal mask |
+| Output | Loss over all tokens | Next token only |
+| Sampling | N/A | Temperature + Top‑K |
+
+---
+
+### Key takeaway
+
+A decoder‑only Transformer is fundamentally a **next‑token predictor**.  
+Everything — dialogue, structure, syntax — emerges purely from:
+
+- Tokenization
+- Causal masking
+- Massive repetition of the same prediction task
+
+This project demonstrates that principle clearly by training a GPT‑2‑style model **entirely from scratch** on a single text corpus.
