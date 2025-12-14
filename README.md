@@ -119,11 +119,11 @@ This section is **auto-filled** by `update_readme.py`.
 
 ### Summary
 <!--AUTO:SUMMARY:START-->
-- Updated: **2025-12-14 10:57**
+- Updated: **2025-12-14 11:14**
 - Run directory: `out/runs/gpt2_124m_bs8_sl128_ga16_lr3e-4`
-- Best loss: **0.138859** at step **2050**
-- Last logged loss: **0.139297**
-- Total logged rows: **43**
+- Best loss: **0.089860** at step **2130**
+- Last logged loss: **0.089860**
+- Total logged rows: **44**
 <!--AUTO:SUMMARY:END-->
 
 ### Training log excerpt
@@ -216,10 +216,10 @@ This section is **auto-filled** by `update_readme.py`.
 <!--AUTO:METRICS:START-->
 | Metric | Value |
 |---|---:|
-| Best loss | 0.138859 |
-| Step at best loss | 2050 |
-| Last logged loss | 0.139297 |
-| Total logged rows | 43 |
+| Best loss | 0.089860 |
+| Step at best loss | 2130 |
+| Last logged loss | 0.089860 |
+| Total logged rows | 44 |
 <!--AUTO:METRICS:END-->
 
 ### Sample generations
