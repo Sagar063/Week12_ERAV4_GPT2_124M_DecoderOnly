@@ -137,6 +137,37 @@ Training produces the following under the run directory (`--out_dir`, e.g. `out/
   - `checkpoints/last.pt` (resume)
   - `checkpoints/best.pt` (lowest loss)
 
+
+### What is `samples/samples.txt` and how is it generated?
+
+During training, the script periodically performs **inference-only sampling** to qualitatively check what the model has learned so far.  
+This is controlled by:
+
+- `--sample_every N`: generate samples every **N training steps**
+- `--prompt "...":` the text prompt used to start generation (default: `BIANCA:\n`)
+- `--num_prompts K`: how many generations to produce per sampling event
+- `--max_new_tokens M`: how many **new tokens** to generate after the prompt
+- `--top_k` and `--temperature`: sampling controls (diversity vs. determinism)
+
+**What gets written to `samples.txt`:**
+- The current **STEP** number
+- The **PROMPT** string used
+- The model’s **OUTPUT** continuation, generated **autoregressively** (next-token prediction repeated `max_new_tokens` times)
+- A separator line for readability
+
+**Important:** `samples.txt` is **not used for training loss**.  
+Loss is computed only from next-token prediction on the training batches.  
+Samples are generated to provide **human-readable evidence** that the model is learning the text distribution and formatting (e.g., Shakespeare-style dialogue).
+
+**Where this happens in training (conceptually):**
+1. Training runs normally for many steps (forward → loss → backward → optimizer step).
+2. When the step hits a multiple of `--sample_every`, training briefly switches to `model.eval()` (no gradients).
+3. The prompt is tokenized using the same tokenizer as training.
+4. The model repeatedly predicts the next-token distribution and samples tokens until `--max_new_tokens` is reached.
+5. The decoded text is appended to `samples/samples.txt`.
+
+This is why, when prompted with `BIANCA:\n`, the model generates dialogue-like continuations and speaker tags it learned from `input.txt`.
+
 **Keep safe (for grading + later deployment):**
 - `checkpoints/best.pt`
 - `logs/train_metrics.csv`
@@ -154,7 +185,7 @@ This section is **auto-filled** by `update_readme.py`.
 
 ### Summary
 <!--AUTO:SUMMARY:START-->
-- Updated: **2025-12-14 11:26**
+- Updated: **2025-12-14 11:42**
 - Run directory: `out/runs/gpt2_124m_bs8_sl128_ga16_lr3e-4`
 - Best loss: **0.089860** at step **2130**
 - Last logged loss: **0.089860**
