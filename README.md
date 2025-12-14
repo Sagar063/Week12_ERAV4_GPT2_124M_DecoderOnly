@@ -84,6 +84,41 @@ python train.py \
   --sample_every 2000
 ```
 
+
+
+### PowerShell wrapper for long training runs (Windows)
+
+For long-running or overnight training on Windows, you can use the included PowerShell wrapper script `training.ps1`.
+
+This wrapper **invokes the same `train.py` entry point** and passes the arguments in a PowerShell-friendly way (via an argument array), typically including GPU-optimized settings such as AMP (`--amp fp16`) and early stopping (`--target_loss`).  
+The **training logic, model architecture, and loss function are identical** — only the way arguments are provided differs.
+
+#### How to run
+
+From the repository root (PowerShell):
+
+```powershell
+.\training.ps1
+```
+
+Internally, the script executes:
+
+```powershell
+python train.py @trainArgs
+```
+
+where `@trainArgs` contains the same flags you would otherwise pass on the command line.
+
+#### Why use `training.ps1`?
+
+- Avoids long multi-line CLI commands in PowerShell
+- Safer for overnight runs (single entry point)
+- Easier to tune `--batch_size` and `--grad_accum` for the local GPU
+- Supports AMP and early stopping configuration in one place
+
+> Note: The CLI commands above remain the **canonical documentation** for cross-platform reproduction.  
+> `training.ps1` is provided as a **Windows convenience wrapper**.
+
 ## Model
 GPT-2 style decoder-only Transformer trained from scratch (no pretrained weights).
 - Tokenizer: GPT-2 BPE via `tiktoken`
@@ -119,7 +154,7 @@ This section is **auto-filled** by `update_readme.py`.
 
 ### Summary
 <!--AUTO:SUMMARY:START-->
-- Updated: **2025-12-14 11:14**
+- Updated: **2025-12-14 11:26**
 - Run directory: `out/runs/gpt2_124m_bs8_sl128_ga16_lr3e-4`
 - Best loss: **0.089860** at step **2130**
 - Last logged loss: **0.089860**

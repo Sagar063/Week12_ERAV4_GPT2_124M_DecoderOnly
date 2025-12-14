@@ -233,6 +233,24 @@ def setup_logging(out_dir: Path) -> tuple[logging.Logger, Path, Path]:
 
     return logger, log_file, csv_file
 
+
+def append_metrics_row(csv_path: Path, step: int, loss_val: float, lr: float, tokens_per_sec: float, elapsed_sec: float) -> None:
+    """Append a single metrics row to train_metrics.csv and flush to disk.
+
+    This is used to ensure the final (best/target) step is captured even when early-stop triggers
+    between regular --log_every intervals.
+    """
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow([step, f"{loss_val:.8f}", f"{lr:.8e}", f"{tokens_per_sec:.2f}", f"{elapsed_sec:.2f}"])
+        f.flush()
+        try:
+            os.fsync(f.fileno())
+        except OSError:
+            # Some filesystems/platforms may not support fsync; flush is still valuable.
+            pass
+
 @torch.no_grad()
 def generate_samples(
     model: GPT,
@@ -516,6 +534,18 @@ def main() -> None:
         # early stop
         if loss_val <= args.target_loss:
             logger.info(f"Target reached: loss {loss_val:.6f} <= {args.target_loss}. Stopping.")
+
+            # Force-write a final metrics row even if (step+1) is not aligned with --log_every.
+            # This prevents the common situation where training stops between logging intervals
+            # and train_metrics.csv never captures the best/target-reaching loss.
+            elapsed = time.time() - t0
+            tps = tokens_seen / max(1e-9, elapsed)
+            lr = optimizer.param_groups[0]["lr"]
+
+            logger.info(f"[final] step {step+1}/{args.steps} | loss {loss_val:.6f} | lr {lr:.2e} | tok/s {tps:.1f}")
+            append_metrics_row(csv_path, step + 1, loss_val, lr, tps, elapsed)
+
+            # Final artifacts
             save_checkpoint(out_dir, model, optimizer, step + 1, best_loss, "last.pt")
             generate_samples(
                 model=model,
